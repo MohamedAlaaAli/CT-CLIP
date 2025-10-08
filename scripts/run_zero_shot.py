@@ -33,15 +33,11 @@ clip = CTCLIP(
 
 )
 
-clip.load("path_to_pretrained_model") #TODO: the path to the pretrained model
+clip.load("model_ckpts/CT-CLIP_v2.pt") #TODO: the path to the pretrained model
 
 inference = CTClipInference(
     clip,
-    data_folder = 'path_to_preprocessed_validation_folder', #TODO: Path to preprocessed validation data
-    reports_file= "path_to_validation_reports_csv", #TODO: Path to validation reports CSV
-    meta_file = "path_to_validation_metadata_csv", #TODO: Path to validation metadata CSV
-    labels = "path_to_validation_labels_csv", #TODO: Path to validation labels CSV
-    results_folder = "inference_zeroshot/", #TODO: Folder to save inference results
+    data_folder = 'data', #TODO: Path to preprocessed validation data
 )
 
 inference.infer()

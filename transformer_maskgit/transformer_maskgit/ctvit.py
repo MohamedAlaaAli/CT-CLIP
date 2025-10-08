@@ -372,7 +372,10 @@ class CTViT(nn.Module):
 
         b, c, f, *image_dims, device = *video.shape, video.device
         device=torch.device('cuda')
-        assert tuple(image_dims) == self.image_size
+        # Replace it with:
+        print(f"[DEBUG] Image dims: {tuple(image_dims)}, Expected: {self.image_size}")
+        assert tuple(image_dims) == self.image_size, f"Image size mismatch: got {tuple(image_dims)}, expected {self.image_size}"
+
         assert not exists(mask) or mask.shape[-1] == f
 
         first_frame, rest_frames = video[:, :, :1], video[:, :, 1:]

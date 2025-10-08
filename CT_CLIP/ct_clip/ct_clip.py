@@ -585,10 +585,10 @@ class CTCLIP(nn.Module):
         self.tokenizer= BertTokenizer.from_pretrained('microsoft/BiomedVLP-CXR-BERT-specialized',do_lower_case=True)
 
     def state_dict(self, *args, **kwargs):
-        return super().state_dict(*args, **kwargs)
+        return super().state_dict(*args, **kwargs, strict=False)
 
     def load_state_dict(self, *args, **kwargs):
-        return super().load_state_dict(*args, **kwargs)
+        return super().load_state_dict(*args, **kwargs, strict=False)
 
     def load(self, path):
         path = Path(path)
